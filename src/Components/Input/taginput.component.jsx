@@ -101,9 +101,11 @@ function TagInput({ icon, ...otherProps }) {
         }}
         onKeyPress={e => {
           if (e.key === "Enter") {
-            setCurrentQuery("");
-            tags.push(currentQuery);
-            setTags(tags);
+            if(e.target.value !== "") {
+              setCurrentQuery("");
+              tags.push(currentQuery);
+              setTags(tags);
+            }
           }
         }}
         _placeholder={{ color: "white", opacity: 0.2 }}
@@ -112,11 +114,13 @@ function TagInput({ icon, ...otherProps }) {
         onBlur={() => setIsActive(false)}
         value={currentQuery}
         onChange={e => {
-          setCurrentQuery(e.target.value);
-          if (e.target.value.endsWith(",")) {
-            setCurrentQuery("");
-            tags.push(currentQuery);
-            setTags(tags);
+          if(e.target.value !== "") {
+            setCurrentQuery(e.target.value);
+            if (e.target.value.endsWith(",")) {
+              setCurrentQuery("");
+              tags.push(currentQuery);
+              setTags(tags);
+            }
           }
         }}
         _hover={{}}
