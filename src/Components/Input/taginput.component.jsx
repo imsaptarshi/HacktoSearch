@@ -80,6 +80,7 @@ function TagInput({ icon, ...otherProps }) {
       <Input
         onFocus={() => {
           toast({
+            duration: 1500,
             render: () => (
               <Flex
                 color="white"
