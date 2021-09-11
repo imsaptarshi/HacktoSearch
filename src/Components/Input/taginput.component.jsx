@@ -91,7 +91,7 @@ function TagInput({ icon, ...otherProps }) {
                 rounded="xl"
               >
                 Press{" "}
-                <Kbd ml="2" mr="2">
+                <Kbd ml="2" mr="2" bg="transparent">
                   Enter
                 </Kbd>{" "}
                 to search
