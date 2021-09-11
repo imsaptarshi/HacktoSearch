@@ -28,6 +28,7 @@ function App() {
         px={{ base: "8", md: "12", lg: "20", xl: "40" }}
       >
         <Text
+          color="white"
           fontWeight="medium"
           opacity="0.6"
           fontSize={{ base: "xl", md: "2xl" }}
@@ -35,6 +36,7 @@ function App() {
           Hacktoberfest Search
         </Text>
         <Text
+          color="white"
           w={{ md: "600px" }}
           fontWeight="bold"
           fontSize={{ base: "4xl", md: "5xl" }}

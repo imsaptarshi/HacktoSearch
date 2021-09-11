@@ -76,6 +76,7 @@ function TagInput({ icon, ...otherProps }) {
         ))}
       </Flex>
       <Input
+        color="white"
         onClick={() => setIsActive(true)}
         onBlur={() => setIsActive(false)}
         value={currentQuery}

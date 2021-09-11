@@ -17,6 +17,7 @@ function CustomButton({ variant, children, ...otherProps }) {
           borderColor="brand.secondary"
           px="12"
           py="26px"
+          color="white"
           _hover={{ bg: "brand.secondary" }}
           _active={{ bg: "brand.secondary" }}
           _focus={{}}
