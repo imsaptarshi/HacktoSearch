@@ -1,4 +1,4 @@
-import { Input, Text, Box, Flex } from "@chakra-ui/react";
+import { Input, Text, Box, Flex, useToast, Kbd } from "@chakra-ui/react";
 import { useState } from "react";
 import { X } from "react-feather";
 
@@ -6,6 +6,8 @@ function TagInput({ icon, ...otherProps }) {
   const [tags, setTags] = useState([]);
   const [currentQuery, setCurrentQuery] = useState("");
   const [isActive, setIsActive] = useState(false);
+
+  const toast = useToast();
 
   const TagItem = ({ children, index }) => {
     return (
@@ -76,6 +78,34 @@ function TagInput({ icon, ...otherProps }) {
         ))}
       </Flex>
       <Input
+        onFocus={() => {
+          toast({
+            render: () => (
+              <Flex
+                color="white"
+                px="6"
+                py="3"
+                justify="center"
+                style={{ backgroundColor: "rgba(255, 255, 255, 0.19)" }}
+                rounded="xl"
+              >
+                Press{" "}
+                <Kbd ml="2" mr="2">
+                  Enter
+                </Kbd>{" "}
+                to search
+              </Flex>
+            ),
+          });
+        }}
+        onKeyPress={e => {
+          if (e.key === "Enter") {
+            setCurrentQuery("");
+            tags.push(currentQuery);
+            setTags(tags);
+          }
+        }}
+        _placeholder={{ color: "white", opacity: 0.2 }}
         color="white"
         onClick={() => setIsActive(true)}
         onBlur={() => setIsActive(false)}

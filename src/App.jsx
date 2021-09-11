@@ -76,7 +76,7 @@ function App() {
                 h="10"
                 w="10"
               />
-              <Box opacity="0.6">
+              <Box opacity="0.6" color="white">
                 <Text fontSize="xs">Created by</Text>
                 <Text fontSize="base" fontWeight="medium">
                   Saptarshi Basu
