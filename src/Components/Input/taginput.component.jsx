@@ -1,8 +1,6 @@
 import {
   Input,
   Text,
-  UnorderedList,
-  ListItem,
   Box,
   Flex,
   useToast,
