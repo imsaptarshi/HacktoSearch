@@ -1,9 +1,5 @@
-<img src="./public/Banner.png"/>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# What is Hacktoberfest Search?
-
-
-# How to run it?
 ## Available Scripts
 
 In the project directory, you can run:

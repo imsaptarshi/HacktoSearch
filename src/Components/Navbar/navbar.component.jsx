@@ -27,7 +27,7 @@ function Navbar() {
           whileHover={[{ scale: [1, 1.12, 1.1, 1.1, 1.1, 1.1] }]}
           whileTap={{ scale: 1 }}
         />
-        <Flex fontWeight="medium" fontSize="2xl" experimental_spaceX="10">
+        <Flex fontWeight="medium" experimental_spaceX="10">
           <MotionLink
             whileTap={{ scale: 1 }}
             _hover={{}}

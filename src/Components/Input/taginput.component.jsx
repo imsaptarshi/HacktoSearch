@@ -62,7 +62,7 @@ function TagInput({ icon, ...otherProps }) {
       _active={{ ring: "2px", ringColor: "brand.secondary" }}
       _focus={{ ring: "2px", ringColor: "brand.secondary" }}
       bg="#372D27"
-      py="2"
+      py={{ base: "2", md: "2.5" }}
       px="6"
       ring={isActive ? "2px" : "none"}
       ringColor={isActive ? "brand.secondary" : "none"}
@@ -87,7 +87,10 @@ function TagInput({ icon, ...otherProps }) {
                 px="6"
                 py="3"
                 justify="center"
-                style={{ backgroundColor: "rgba(255, 255, 255, 0.19)" }}
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.19)",
+                  backdropFilter: "blur(9px)",
+                }}
                 rounded="xl"
               >
                 Press{" "}
@@ -100,12 +103,10 @@ function TagInput({ icon, ...otherProps }) {
           });
         }}
         onKeyPress={e => {
-          if (e.key === "Enter") {
-            if(e.target.value !== "") {
-              setCurrentQuery("");
-              tags.push(currentQuery);
-              setTags(tags);
-            }
+          if (e.key === "Enter" && e.target.value.trim() !== "") {
+            setCurrentQuery("");
+            tags.push(currentQuery);
+            setTags(tags);
           }
         }}
         _placeholder={{ color: "white", opacity: 0.2 }}
@@ -114,13 +115,11 @@ function TagInput({ icon, ...otherProps }) {
         onBlur={() => setIsActive(false)}
         value={currentQuery}
         onChange={e => {
-          if(e.target.value !== "") {
-            setCurrentQuery(e.target.value);
-            if (e.target.value.endsWith(",")) {
-              setCurrentQuery("");
-              tags.push(currentQuery);
-              setTags(tags);
-            }
+          setCurrentQuery(e.target.value);
+          if (e.target.value.trim() !== "," && e.target.value.endsWith(",")) {
+            setCurrentQuery("");
+            tags.push(currentQuery);
+            setTags(tags);
           }
         }}
         _hover={{}}
