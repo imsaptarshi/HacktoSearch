@@ -15,7 +15,7 @@ function App() {
       <Box position="absolute" top="0" right="0">
         <Image
           src={Asset}
-          w={{ lg: "450px", xl: "700px", "2xl": "850px" }}
+          w={{ lg: "450px", xl: "650px" }}
           opacity="0.9"
           display={{ base: "none", lg: "block" }}
         />

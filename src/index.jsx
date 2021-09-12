@@ -6,17 +6,19 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import * as serviceWorker from "./serviceWorker";
 import theme from "./theme";
+import { SearchProvider } from "./Providers/search.provider";
 
 ReactDOM.render(
   <StrictMode>
     <ChakraProvider theme={theme}>
-      <ColorModeScript />
-      <App />
+      <SearchProvider>
+        <ColorModeScript />
+        <App />
+      </SearchProvider>
     </ChakraProvider>
   </StrictMode>,
   document.getElementById("root")
 );
-
 
 // Don't Remove these comments, if later we need to use them, then we can read this
 
