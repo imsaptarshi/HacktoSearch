@@ -5,7 +5,7 @@ import { useSearch } from "../../Providers/search.provider";
 import get from "../../Helpers/getRepositories";
 
 function SearchForm() {
-  const { query, setQuery, setResults, results } = useSearch();
+  const { query, setQuery, setResults } = useSearch();
 
   return (
     <Flex

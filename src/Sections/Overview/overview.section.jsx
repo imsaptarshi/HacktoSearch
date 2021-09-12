@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Flex, Text, Box, Grid, GridItem } from "@chakra-ui/react";
 import RepositoryCard from "../../Components/Card/repositoryCard.component";
-import { useSearch } from "../../Providers/search.provider";
 import get from "../../Helpers/getRepositories";
 function Overview({ title, label, icon }) {
-  const { results } = useSearch();
   const [data, setData] = useState([]);
 
   useEffect(() => {
