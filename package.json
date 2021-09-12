@@ -2,9 +2,6 @@
   "name": "hacktoberfest-search",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "14.17.1"
-  },
   "dependencies": {
     "@chakra-ui/react": "^1.0.0",
     "@emotion/react": "^11.0.0",
