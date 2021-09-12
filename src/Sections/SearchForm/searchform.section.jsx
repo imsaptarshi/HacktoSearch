@@ -2,15 +2,23 @@ import TagInput from "../../Components/Input/taginput.component";
 import { Flex } from "@chakra-ui/react";
 import { Tag, Code } from "react-feather";
 import { useSearch } from "../../Providers/search.provider";
+import get from "../../Helpers/getRepositories";
 
 function SearchForm() {
-  const { query, setQuery } = useSearch();
+  const { query, setQuery, setResults, results } = useSearch();
 
   return (
     <Flex
       onKeyPress={e => {
         if (e.key === "Enter") {
-          console.log(query);
+          const data = get(query.label, query.language);
+          data.then(res => {
+            setResults({
+              data: res,
+              label: query.label,
+              language: query.language,
+            });
+          });
         }
       }}
       w="full"

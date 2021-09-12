@@ -5,7 +5,9 @@ import Navbar from "./Components/Navbar/navbar.component";
 import CustomButton from "./Components/Button/button.component";
 import SearchForm from "./Sections/SearchForm/searchform.section";
 import Asset from "./Assets/asset[1].svg";
+import GoodFirstIssue from "./Assets/goodFirstIssue.svg";
 import ProfilePicture from "./Assets/creator_pfp.png";
+import Overview from "./Sections/Overview/overview.section";
 
 function App() {
   const MotionImage = motion(Image);
@@ -86,6 +88,12 @@ function App() {
           </a>
         </Flex>
         <SearchForm />
+        <Box mb={{ base: "14", md: "24" }} />
+        <Overview
+          title="Good First Issue"
+          label={["good-first-issue", "hacktoberfest"]}
+          icon={<Image w={{ base: "14", md: "20" }} src={GoodFirstIssue} />}
+        />
       </Box>
     </Box>
   );

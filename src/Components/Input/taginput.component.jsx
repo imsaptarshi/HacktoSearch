@@ -119,9 +119,10 @@ function TagInput({ icon, handleChange, ...otherProps }) {
               });
             }}
             onKeyPress={e => {
+              handleChange(tags);
               if (e.key === "Enter" && e.target.value.trim() !== "") {
-                setCurrentQuery("");
                 tags.push(currentQuery);
+                setCurrentQuery("");
                 setTags(tags);
               }
             }}

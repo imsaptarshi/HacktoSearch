@@ -14,8 +14,14 @@ export const SearchProvider = ({ children }) => {
     language: [],
   });
 
+  const [results, setResults] = useState({
+    data: [],
+    label: [],
+    language: [],
+  });
+
   return (
-    <SearchContext.Provider value={{ query, setQuery }}>
+    <SearchContext.Provider value={{ query, setQuery, results, setResults }}>
       {children}
     </SearchContext.Provider>
   );
