@@ -20,6 +20,9 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^0.2.2"
   },
+  "optionalDependencies": {
+    "fsevents": "2.1.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
