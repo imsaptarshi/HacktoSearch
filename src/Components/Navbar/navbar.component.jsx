@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Image, Link, Box } from "@chakra-ui/react";
+import { Flex, Image, Link } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Logo from "../../Assets/logo.png";
 

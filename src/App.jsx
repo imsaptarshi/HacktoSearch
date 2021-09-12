@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Text, Flex, Link } from "@chakra-ui/react";
+import { Box, Image, Text, Flex } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Navbar from "./Components/Navbar/navbar.component";
 import CustomButton from "./Components/Button/button.component";
