@@ -12,7 +12,11 @@ async function get(
     sort ? `&sort=${sort}` : ""
   }`;
 
-  const response = await axios.get(queryString);
+  const response = await axios.get(queryString, {
+    headers: {
+      Authorization: `token ${process.env.REACT_APP_OAUTH_TOKEN}`,
+    },
+  });
 
   if (count) {
     return response.data.items.slice(0, count);

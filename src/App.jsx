@@ -5,9 +5,8 @@ import Navbar from "./Components/Navbar/navbar.component";
 import CustomButton from "./Components/Button/button.component";
 import SearchForm from "./Sections/SearchForm/searchform.section";
 import Asset from "./Assets/asset[1].svg";
-import GoodFirstIssue from "./Assets/goodFirstIssue.svg";
 import ProfilePicture from "./Assets/creator_pfp.png";
-import Overview from "./Sections/Overview/overview.section";
+import RepositoriesOverview from "./Sections/RepositoriesOverview/repositoriesOverview.section";
 
 function App() {
   const MotionImage = motion(Image);
@@ -54,10 +53,13 @@ function App() {
         >
           <CustomButton
             variant="solid"
+            onClick={() => {
+              window.location.href = "#repos";
+            }}
             mr={{ md: "10", lg: "20" }}
             mb={{ base: "6", md: "0" }}
           >
-            Get Updated
+            Get Started
           </CustomButton>
           <a
             href="https://github.com/imsaptarshi"
@@ -88,12 +90,8 @@ function App() {
           </a>
         </Flex>
         <SearchForm />
-        <Box mb={{ base: "14", md: "24" }} />
-        <Overview
-          title="Good First Issue"
-          label={["good-first-issue", "hacktoberfest"]}
-          icon={<Image w={{ base: "14", md: "20" }} src={GoodFirstIssue} />}
-        />
+        <Box mb={{ base: "6", md: "14" }} />
+        <RepositoriesOverview />
       </Box>
     </Box>
   );

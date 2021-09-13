@@ -78,7 +78,7 @@ function TagInput({ icon, handleChange, ...otherProps }) {
       ringColor={isActive ? "brand.secondary" : "none"}
       transitionDuration="200ms"
       w="full"
-      rounded="full"
+      rounded="30px"
       alignItems="center"
     >
       <Box mr="4" color="brand.secondary">
@@ -119,11 +119,11 @@ function TagInput({ icon, handleChange, ...otherProps }) {
               });
             }}
             onKeyPress={e => {
-              handleChange(tags);
               if (e.key === "Enter" && e.target.value.trim() !== "") {
-                tags.push(currentQuery);
+                tags.push(currentQuery.split(" ").join("-"));
                 setCurrentQuery("");
                 setTags(tags);
+                handleChange(tags);
               }
             }}
             _placeholder={{ color: "whiteAlpha.400" }}
@@ -138,7 +138,7 @@ function TagInput({ icon, handleChange, ...otherProps }) {
                 e.target.value.endsWith(",")
               ) {
                 setCurrentQuery("");
-                tags.push(currentQuery);
+                tags.push(currentQuery.split(" ").join("-"));
                 setTags(tags);
                 handleChange(tags);
               }

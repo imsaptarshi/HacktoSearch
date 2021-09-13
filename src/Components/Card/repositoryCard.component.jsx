@@ -11,16 +11,31 @@ function RepositoryCard({ data, label = [], language = [] }) {
   const [languages, setLanguages] = useState([]);
 
   useEffect(() => {
-    axios.get(data?.owner.url).then(res => {
-      setUser(res.data);
-    });
-    axios.get(data?.languages_url).then(res => {
-      const langs = Object.fromEntries(
-        Object.entries(res.data).sort(([, a], [, b]) => a - b)
-      );
-      console.log(Object.keys(langs).reverse());
-      setLanguages(Object.keys(langs).reverse());
-    });
+    axios
+      .get(data?.owner.url, {
+        headers: {
+          Authorization: `token ${process.env.REACT_APP_OAUTH_TOKEN}`,
+        },
+      })
+      .then(res => {
+        setUser(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    axios
+      .get(data?.languages_url, {
+        headers: {
+          Authorization: `token ${process.env.REACT_APP_OAUTH_TOKEN}`,
+        },
+      })
+      .then(res => {
+        const langs = Object.fromEntries(
+          Object.entries(res.data).sort(([, a], [, b]) => a - b)
+        );
+        setLanguages(Object.keys(langs).reverse());
+      })
+      .catch(err => console.log(err));
   }, [data?.languages_url, data?.owner.url]);
 
   return (
@@ -74,40 +89,36 @@ function RepositoryCard({ data, label = [], language = [] }) {
                 {data}
               </CustomTag>
             ))}
-            {language.length > 0
-              ? language.map((data, key) => (
-                  <CustomTag key={key} variant="solid">
-                    {data}
-                  </CustomTag>
-                ))
-              : languages.slice(0, 1).map((data, key) => (
-                  <CustomTag key={key} variant="solid">
-                    {data}
-                  </CustomTag>
-                ))}
+            {languages.slice(0, 1).map((data, key) => (
+              <CustomTag key={key} variant="solid">
+                {data}
+              </CustomTag>
+            ))}
           </Flex>
         </Box>
       </Flex>
-      <Flex
-        experimental_spaceX="3"
-        cursor="pointer"
-        alignItems="center"
-        transitionDuration="300ms"
-        _hover={{ filter: "none" }}
-      >
-        <Avatar
-          src={data?.owner.avatar_url}
-          name="Saptarshi Basu"
-          h="12"
-          w="12"
-        />
-        <Box color="white">
-          <Text fontSize="xs">@{data?.owner.login}</Text>
-          <Text fontSize="sm" fontWeight="medium">
-            {user.name}
-          </Text>
-        </Box>
-      </Flex>
+      <a href={user?.html_url} target="_blank" rel="noreferrer">
+        <Flex
+          experimental_spaceX="3"
+          cursor="pointer"
+          alignItems="center"
+          transitionDuration="300ms"
+          _hover={{ filter: "none" }}
+        >
+          <Avatar
+            src={data?.owner.avatar_url}
+            name="Saptarshi Basu"
+            h="12"
+            w="12"
+          />
+          <Box color="white">
+            <Text fontSize="xs">@{data?.owner.login}</Text>
+            <Text fontSize="sm" fontWeight="medium">
+              {user.name}
+            </Text>
+          </Box>
+        </Flex>
+      </a>
     </Flex>
   );
 }

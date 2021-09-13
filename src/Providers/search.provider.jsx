@@ -6,6 +6,13 @@ const SearchContext = createContext({
     language: [],
   },
   setQuery: () => {},
+  results: {
+    label: [],
+    language: [],
+  },
+  setResults: () => {},
+  isSearching: false,
+  setIsSearching: () => {},
 });
 
 export const SearchProvider = ({ children }) => {
@@ -20,8 +27,19 @@ export const SearchProvider = ({ children }) => {
     language: [],
   });
 
+  const [isSearching, setIsSearching] = useState(false);
+
   return (
-    <SearchContext.Provider value={{ query, setQuery, results, setResults }}>
+    <SearchContext.Provider
+      value={{
+        query,
+        setQuery,
+        results,
+        setResults,
+        isSearching,
+        setIsSearching,
+      }}
+    >
       {children}
     </SearchContext.Provider>
   );
