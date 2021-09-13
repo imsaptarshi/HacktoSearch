@@ -92,7 +92,7 @@ function Overview({
                 fontSize="xl"
                 color="white"
               >
-                We appreciate your enthusiasm, but unfortunately we’ve execeded
+                We appreciate your enthusiasm, but unfortunately we’ve exceeded
                 our request limit
               </Text>
 
