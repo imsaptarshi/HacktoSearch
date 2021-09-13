@@ -13,6 +13,8 @@ const SearchContext = createContext({
   setResults: () => {},
   isSearching: false,
   setIsSearching: () => {},
+  isError: false,
+  setIsError: () => {},
 });
 
 export const SearchProvider = ({ children }) => {
@@ -28,6 +30,7 @@ export const SearchProvider = ({ children }) => {
   });
 
   const [isSearching, setIsSearching] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   return (
     <SearchContext.Provider
@@ -38,6 +41,8 @@ export const SearchProvider = ({ children }) => {
         setResults,
         isSearching,
         setIsSearching,
+        isError,
+        setIsError,
       }}
     >
       {children}

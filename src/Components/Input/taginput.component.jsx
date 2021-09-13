@@ -94,6 +94,32 @@ function TagInput({ icon, handleChange, ...otherProps }) {
         </Flex>
         <InputGroup flex="1" minW="32" mt="-2">
           <Input
+            onKeyPress={e => {
+              if (e.key === "Enter" && tags.length === 0) {
+                toast({
+                  duration: 1500,
+                  render: () => (
+                    <Flex
+                      color="white"
+                      px="6"
+                      py="3"
+                      justify="center"
+                      style={{
+                        backgroundColor: "rgba(255, 255, 255, 0.19)",
+                        backdropFilter: "blur(9px)",
+                      }}
+                      rounded="xl"
+                    >
+                      Use{" "}
+                      <Kbd ml="2" mr="2" bg="transparent">
+                        ,
+                      </Kbd>{" "}
+                      separated values
+                    </Flex>
+                  ),
+                });
+              }
+            }}
             onFocus={() => {
               toast({
                 duration: 1500,
@@ -117,14 +143,6 @@ function TagInput({ icon, handleChange, ...otherProps }) {
                   </Flex>
                 ),
               });
-            }}
-            onKeyPress={e => {
-              if (e.key === "Enter" && e.target.value.trim() !== "") {
-                tags.push(currentQuery.split(" ").join("-"));
-                setCurrentQuery("");
-                setTags(tags);
-                handleChange(tags);
-              }
             }}
             _placeholder={{ color: "whiteAlpha.400" }}
             color="white"
