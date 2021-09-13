@@ -6,7 +6,7 @@ import Hacktoberfest from "../../Assets/hacktoberfest.svg";
 import SearchResults from "../SearchResults/searchresults.section";
 
 function RepositoriesOverview() {
-  const { results, isSearching } = useSearch();
+  const { isSearching } = useSearch();
 
   return (
     <>
