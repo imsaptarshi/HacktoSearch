@@ -53,16 +53,31 @@ function SearchForm() {
     >
       <TagInput
         placeholder="Label"
+        autofillSuggestions={[
+          { name: "hacktoberfest" },
+          { name: "hacktoberfest2021" },
+          { name: "good-first-issues" },
+          { name: "beginners" },
+          { name: "first-timers-only" },
+        ]}
         icon={<Tag />}
         handleChange={tags => {
           setQuery({
             ...query,
             label: tags,
           });
+          console.log(query);
         }}
       />
       <TagInput
         placeholder="Language"
+        autofillSuggestions={[
+          { name: "Javascript" },
+          { name: "Python" },
+          { name: "C++" },
+          { name: "Typescript" },
+          { name: "Java" },
+        ]}
         icon={<Code />}
         handleChange={tags => {
           setQuery({

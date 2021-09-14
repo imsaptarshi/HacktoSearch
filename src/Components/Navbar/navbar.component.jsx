@@ -29,18 +29,25 @@ function Navbar() {
         />
         <Flex fontWeight="medium" experimental_spaceX="10">
           <MotionLink
+            href="https://github.com/imsaptarshi/Hacktoberfest-Search"
+            isExternal
             whileTap={{ scale: 1 }}
             _hover={{}}
+            _active={{}}
+            _focus={{}}
             whileHover={[{ scale: [1, 1.12, 1.1, 1.1, 1.1, 1.1] }]}
           >
             Contribute
           </MotionLink>
           <MotionLink
-            _hover={{}}
-            whileTap={{ scale: 1 }}
-            whileHover={[{ scale: [1, 1.15, 1.1, 1.1, 1.1, 1.1] }]}
+            href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+            class="twitter-share-button"
+            data-text="✨ Opensource contributions made easier with"
+            data-url="https://hacktosearch.vercel.app/"
+            data-hashtags="hacktosearch,hacktoberfest"
+            data-show-count="false"
           >
-            Promote
+            Tweet
           </MotionLink>
         </Flex>
       </Flex>
