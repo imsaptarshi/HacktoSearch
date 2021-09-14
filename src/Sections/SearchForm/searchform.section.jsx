@@ -58,7 +58,7 @@ function SearchForm() {
         autofillSuggestions={[
           { name: "hacktoberfest" },
           { name: "hacktoberfest2021" },
-          { name: "good-first-issues" },
+          { name: "good-first-issue" },
           { name: "beginners" },
           { name: "first-timers-only" },
         ]}

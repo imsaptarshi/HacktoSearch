@@ -36,7 +36,7 @@ function RepositoryCard({ data, label = [], language = [] }) {
         setLanguages(Object.keys(langs).reverse());
       })
       .catch(err => console.log(err));
-  }, [data?.languages_url, data?.owner.url]);
+  }, []);
 
   return (
     <Flex
