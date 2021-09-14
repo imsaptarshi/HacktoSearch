@@ -43,6 +43,7 @@ function SearchResults() {
         const data = get(query.label, query.language, 10, "relevance");
         data
           .then(res => {
+            window.location.href = "#search";
             setResults({
               data: res,
               label: query.label.slice(0, query.label.length),

@@ -22,6 +22,7 @@ function SearchForm() {
 
   return (
     <Flex
+      id="search"
       onKeyPress={e => {
         if (
           e.key === "Enter" &&
@@ -36,6 +37,7 @@ function SearchForm() {
           setIsError(false);
           data
             .then(res => {
+              window.location.href = "#search";
               setResults({
                 data: res,
                 label: query.label.slice(0, query.label.length),
