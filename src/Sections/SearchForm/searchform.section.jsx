@@ -6,7 +6,8 @@ import { useSearch } from "../../Providers/search.provider";
 import get from "../../Helpers/getRepositories";
 
 function SearchForm() {
-  const { query, setQuery, setResults, setIsSearching } = useSearch();
+  const { query, setQuery, results, setResults, setIsSearching, setIsError } =
+    useSearch();
 
   useEffect(() => {
     if (query.label.length === 0 && query.language.length === 0) {
@@ -27,7 +28,12 @@ function SearchForm() {
           (query.label.length > 0 || query.language.length > 0)
         ) {
           setIsSearching(true);
+          setResults({
+            ...results,
+            data: [],
+          });
           const data = get(query.label, query.language, 10, "relevance");
+          setIsError(false);
           data
             .then(res => {
               setResults({
@@ -36,7 +42,7 @@ function SearchForm() {
                 language: query.language.slice(0, query.language.length),
               });
             })
-            .catch(err => console.log(err));
+            .catch(err => setIsError(true));
         }
       }}
       w="full"
@@ -47,16 +53,31 @@ function SearchForm() {
     >
       <TagInput
         placeholder="Label"
+        autofillSuggestions={[
+          { name: "hacktoberfest" },
+          { name: "hacktoberfest2021" },
+          { name: "good-first-issues" },
+          { name: "beginners" },
+          { name: "first-timers-only" },
+        ]}
         icon={<Tag />}
         handleChange={tags => {
           setQuery({
             ...query,
             label: tags,
           });
+          console.log(query);
         }}
       />
       <TagInput
         placeholder="Language"
+        autofillSuggestions={[
+          { name: "Javascript" },
+          { name: "Python" },
+          { name: "C++" },
+          { name: "Typescript" },
+          { name: "Java" },
+        ]}
         icon={<Code />}
         handleChange={tags => {
           setQuery({

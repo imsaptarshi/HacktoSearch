@@ -9,16 +9,26 @@ import {
   GridItem,
   Spinner,
   Image,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  useDisclosure,
 } from "@chakra-ui/react";
 import RepositoryCard from "../../Components/Card/repositoryCard.component";
 import get from "../../Helpers/getRepositories";
 import Search from "../../Assets/search.svg";
+import Doodle from "../../Assets/doodle.png";
+import Countdown from "react-countdown";
 
 function SearchResults() {
-  const { query, results, setResults, setIsSearching } = useSearch();
+  const { query, results, setResults, setIsSearching, isError, setIsError } =
+    useSearch();
+
+  const { onOpen, onClose } = useDisclosure();
 
   const Refresh = () => (
     <CustomButton
+      id="refresh"
       p="0"
       w="14"
       transform={{ base: "scale(0.8)", md: "scale(1)" }}
@@ -39,7 +49,7 @@ function SearchResults() {
               language: query.language.slice(0, query.language.length),
             });
           })
-          .catch(err => console.log(err));
+          .catch(err => setIsError(true));
       }}
     >
       <RefreshCw size="14px" />
@@ -87,7 +97,6 @@ function SearchResults() {
         >
           <GridItem
             display={{ base: "none", md: "flex" }}
-            pr="8"
             colSpan={{ lg: "2" }}
             justifyContent="end"
           >
@@ -104,6 +113,58 @@ function SearchResults() {
             </GridItem>
           ))}
         </Grid>
+      ) : isError ? (
+        <Modal isOpen={onOpen} onClose={onClose} closeOnEsc={true}>
+          <ModalOverlay />
+          <ModalContent bg="#0F1929" p="12" rounded="2xl">
+            <Flex
+              direction="column"
+              justify="center"
+              alignItems="center"
+              experimental_spaceY="6"
+            >
+              <Image src={Doodle} />
+              <Text
+                align="center"
+                fontWeight="bold"
+                fontSize="xl"
+                color="white"
+              >
+                We appreciate your enthusiasm, but unfortunately we’ve exceeded
+                our request limit
+              </Text>
+
+              <Countdown
+                date={Date.now() + 30000}
+                renderer={({ hours, minutes, seconds, completed }) =>
+                  completed ? (
+                    <CustomButton
+                      variant="solid"
+                      onClick={() => {
+                        setIsError(false);
+                        document.getElementById("refresh").click();
+                      }}
+                    >
+                      Refresh
+                    </CustomButton>
+                  ) : (
+                    <Text
+                      align="center"
+                      fontWeight="medium"
+                      fontSize="base"
+                      color="white"
+                    >
+                      Retry after{" "}
+                      <Text display="inline" color="brand.secondary">
+                        {seconds} Seconds
+                      </Text>
+                    </Text>
+                  )
+                }
+              />
+            </Flex>
+          </ModalContent>
+        </Modal>
       ) : (
         <Flex w="full" justify="center" alignItems="center">
           <Spinner color="white" w="100px" h="100px" />

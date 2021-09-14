@@ -1,7 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Flex, Text, Box, Grid, GridItem, Spinner } from "@chakra-ui/react";
+import {
+  Flex,
+  Text,
+  Box,
+  Grid,
+  GridItem,
+  Spinner,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  useDisclosure,
+  Image,
+} from "@chakra-ui/react";
 import RepositoryCard from "../../Components/Card/repositoryCard.component";
 import get from "../../Helpers/getRepositories";
+import { useSearch } from "../../Providers/search.provider";
+import Doodle from "../../Assets/doodle.png";
+import Countdown from "react-countdown";
+import CustomButton from "../../Components/Button/button.component";
 
 function Overview({
   title,
@@ -13,13 +29,18 @@ function Overview({
   sortBy = "updated",
 }) {
   const [data, setData] = useState([]);
+  const { isError, setIsError } = useSearch();
+
+  const { onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     const _data = get(label, language, count, sortBy);
-    _data.then(res => {
-      setData(res);
-    });
-  }, [count, data, label, language, sortBy]);
+    _data
+      .then(res => {
+        setData(res);
+      })
+      .catch(err => setIsError(true));
+  }, [count, data, label, language, setIsError, sortBy]);
 
   return (
     <Flex
@@ -54,6 +75,57 @@ function Overview({
             </GridItem>
           ))}
         </Grid>
+      ) : isError ? (
+        <Modal isOpen={onOpen} onClose={onClose} closeOnEsc={true}>
+          <ModalOverlay />
+          <ModalContent bg="#0F1929" p="12" rounded="2xl">
+            <Flex
+              direction="column"
+              justify="center"
+              alignItems="center"
+              experimental_spaceY="6"
+            >
+              <Image src={Doodle} />
+              <Text
+                align="center"
+                fontWeight="bold"
+                fontSize="xl"
+                color="white"
+              >
+                We appreciate your enthusiasm, but unfortunately we’ve exceeded
+                our request limit
+              </Text>
+
+              <Countdown
+                date={Date.now() + 30000}
+                renderer={({ hours, minutes, seconds, completed }) =>
+                  completed ? (
+                    <CustomButton
+                      variant="solid"
+                      onClick={() => {
+                        setIsError(false);
+                      }}
+                    >
+                      Refresh
+                    </CustomButton>
+                  ) : (
+                    <Text
+                      align="center"
+                      fontWeight="medium"
+                      fontSize="base"
+                      color="white"
+                    >
+                      Retry after{" "}
+                      <Text display="inline" color="brand.secondary">
+                        {seconds} Seconds
+                      </Text>
+                    </Text>
+                  )
+                }
+              />
+            </Flex>
+          </ModalContent>
+        </Modal>
       ) : (
         <Flex w="full" justify="center" alignItems="center">
           <Spinner color="white" w="100px" h="100px" />

@@ -1,0 +1,18 @@
+.react-autosuggest__suggestions-list {
+  list-style: none;
+  border-radius: 8px;
+  background-color: #372d27;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 999;
+}
+.react-autosuggest__container {
+  position: relative;
+}
+
+.react-autosuggest__suggestions-container {
+  display: none;
+}
+.react-autosuggest__suggestions-container--open {
+  display: block;
+}
