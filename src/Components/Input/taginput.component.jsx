@@ -46,7 +46,6 @@ function TagInput({
         alignItems="center"
         experimental_spaceX="2"
         justifyContent="space-between"
-        maxW="40"
         bg="brand.secondary"
         rounded="full"
         px="2.5"

@@ -6,13 +6,7 @@
   flex-wrap: wrap;
   z-index: 999;
 }
-.react-autosuggest__container {
-  position: relative;
-}
 
-.react-autosuggest__suggestions-container {
-  display: none;
-}
-.react-autosuggest__suggestions-container--open {
-  display: block;
+.react-autosuggest__container {
+  width: 100%;
 }

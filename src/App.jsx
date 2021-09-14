@@ -91,7 +91,7 @@ function App() {
         </Flex>
         <SearchForm />
         <Box mb={{ base: "6", md: "14" }} />
-        <RepositoriesOverview />
+        {/*<RepositoriesOverview />*/}
       </Box>
     </Box>
   );
