@@ -34,7 +34,7 @@ function SearchForm() {
             data: [],
           });
           const data = get(
-            query.label,
+            query.label.length > 0 ? query.label : ["hacktoberfest"],
             query.language.slice(0, 1),
             10,
             "relevance"
