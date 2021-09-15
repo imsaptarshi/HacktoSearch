@@ -40,7 +40,7 @@ function Overview({
         setData(res);
       })
       .catch(err => setIsError(true));
-  }, [count, data, label, language, setIsError, sortBy]);
+  }, [count, label, language, setIsError, sortBy]);
 
   return (
     <Flex
@@ -97,7 +97,7 @@ function Overview({
               </Text>
 
               <Countdown
-                date={Date.now() + 30000}
+                date={Date.now() + 60000}
                 renderer={({ hours, minutes, seconds, completed }) =>
                   completed ? (
                     <CustomButton

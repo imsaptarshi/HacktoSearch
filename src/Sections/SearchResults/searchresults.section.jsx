@@ -136,7 +136,7 @@ function SearchResults() {
               </Text>
 
               <Countdown
-                date={Date.now() + 30000}
+                date={Date.now() + 60000}
                 renderer={({ hours, minutes, seconds, completed }) =>
                   completed ? (
                     <CustomButton

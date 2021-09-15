@@ -20,6 +20,7 @@ function Navbar() {
         py={{ base: "8", md: "12" }}
       >
         <MotionImage
+          onClick={() => (window.location.href = "/")}
           cursor="pointer"
           alt="hacktoberfest search"
           src={Logo}
