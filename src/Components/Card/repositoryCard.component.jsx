@@ -97,7 +97,7 @@ function RepositoryCard({ data, label = [], language = [] }) {
         >
           <Avatar
             src={data?.owner.avatar_url}
-            name="Saptarshi Basu"
+            name={user?.name}
             h="12"
             w="12"
           />
