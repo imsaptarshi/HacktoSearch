@@ -10,9 +10,8 @@ function Footer() {
     <a href={link} target="_blank" rel="noreferrer">
       <IconButton
         cursor="pointer"
-        filter="grayscale(100%)"
         transitionDuration="200ms"
-        _hover={{ filter: "none" }}
+        _hover={{ transform: "scale(1.1)" }}
         icon={icon}
         alt={link}
         variant="ghost"
