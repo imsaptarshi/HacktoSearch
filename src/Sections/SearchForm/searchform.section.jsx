@@ -33,7 +33,12 @@ function SearchForm() {
             ...results,
             data: [],
           });
-          const data = get(query.label, query.language, 10, "relevance");
+          const data = get(
+            query.label,
+            query.language.slice(0, 1),
+            10,
+            "relevance"
+          );
           setIsError(false);
           data
             .then(res => {

@@ -40,7 +40,12 @@ function SearchResults() {
           ...results,
           data: [],
         });
-        const data = get(query.label, query.language, 10, "relevance");
+        const data = get(
+          query.label,
+          query.language.slice(0, 1),
+          10,
+          "relevance"
+        );
         data
           .then(res => {
             window.location.href = "#search";
@@ -108,7 +113,9 @@ function SearchResults() {
             <GridItem key={key}>
               <RepositoryCard
                 data={_data}
-                label={results.label}
+                label={
+                  results.label.length > 0 ? results.label : ["hacktoberfest"]
+                }
                 language={results.language}
               />
             </GridItem>
