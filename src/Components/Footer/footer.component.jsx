@@ -39,15 +39,15 @@ function Footer() {
         </Text>
         <Flex alignItems="center" experimental_spaceX="2">
           <SocialLink
-            icon={<GitHubSocialIcon w={8} h={8} />}
+            icon={<GitHubSocialIcon w={7} h={7} />}
             link="https://github.com/imsaptarshi"
           />
           <SocialLink
-            icon={<TwitterSocialIcon w={8} h={8} />}
+            icon={<TwitterSocialIcon w={7} h={7} />}
             link="https://twitter.com/imsaptarshiii"
           />
           <SocialLink
-            icon={<DiscordSocialIcon w={8} h={8} />}
+            icon={<DiscordSocialIcon w={7} h={7} />}
             link="https://discord.gg/VFfG7UTn5J"
           />
         </Flex>
