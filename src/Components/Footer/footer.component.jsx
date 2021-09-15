@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
+import { Flex, Text, Image } from "@chakra-ui/react";
 import Github from "../../Assets/github.png";
 import Twitter from "../../Assets/twitter.png";
 import Discord from "../../Assets/discord.png";
@@ -20,10 +20,17 @@ function Footer() {
   );
 
   return (
-    <Box bg="whiteAlpha.300" w="full" py="3" position="absolute" bottom="0">
+    <Flex
+      justify="center"
+      bg="whiteAlpha.300"
+      w="full"
+      py="3"
+      position="absolute"
+      bottom="0"
+    >
       <Flex
         alignItems="center"
-        maxW="1500px"
+        w={{ base: "full", xl: "1500px" }}
         px={{ base: "8", md: "12", lg: "20", xl: "40" }}
         justify="space-between"
       >
@@ -51,7 +58,7 @@ function Footer() {
           />
         </Flex>
       </Flex>
-    </Box>
+    </Flex>
   );
 }
 
