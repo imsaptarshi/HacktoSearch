@@ -1,4 +1,4 @@
-<h1 align="center">HacktoSearch 📚</h1>
+<h1 align="center">Let's Hack this October 🐱‍👤</h1>
 
 ![hacktosearch](./public/hacktosearch.gif)
 
@@ -13,6 +13,8 @@ npm install
 # Run the project
 npm start
 ```
+
+More at [Setup.md](Setup.md)
 
 ## Contributing
 
