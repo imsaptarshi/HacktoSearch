@@ -1,20 +1,21 @@
-import { Flex, Text, Image } from "@chakra-ui/react";
-import Github from "../../Assets/github.png";
-import Twitter from "../../Assets/twitter.png";
-import Discord from "../../Assets/discord.png";
+import { Flex, Text, IconButton } from "@chakra-ui/react";
+import {
+  DiscordSocialIcon,
+  GitHubSocialIcon,
+  TwitterSocialIcon,
+} from "../../icons";
 
 function Footer() {
-  const SocialLink = ({ image, w = 7, h = 7, link }) => (
+  const SocialLink = ({ icon, link }) => (
     <a href={link} target="_blank" rel="noreferrer">
-      <Image
+      <IconButton
         cursor="pointer"
         filter="grayscale(100%)"
         transitionDuration="200ms"
         _hover={{ filter: "none" }}
-        src={image}
-        w={w}
-        h={h}
+        icon={icon}
         alt={link}
+        variant="ghost"
       />
     </a>
   );
@@ -39,21 +40,15 @@ function Footer() {
         </Text>
         <Flex alignItems="center" experimental_spaceX="2">
           <SocialLink
-            image={Github}
-            w="7"
-            h="7"
+            icon={<GitHubSocialIcon w={8} h={8} />}
             link="https://github.com/imsaptarshi"
           />
           <SocialLink
-            image={Twitter}
-            w="9"
-            h="9"
+            icon={<TwitterSocialIcon w={8} h={8} />}
             link="https://twitter.com/imsaptarshiii"
           />
           <SocialLink
-            image={Discord}
-            w="7"
-            h="7"
+            icon={<DiscordSocialIcon w={8} h={8} />}
             link="https://discord.gg/VFfG7UTn5J"
           />
         </Flex>
