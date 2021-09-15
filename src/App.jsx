@@ -7,6 +7,7 @@ import SearchForm from "./Sections/SearchForm/searchform.section";
 import Asset from "./Assets/asset[1].svg";
 import ProfilePicture from "./Assets/creator_pfp.png";
 import RepositoriesOverview from "./Sections/RepositoriesOverview/repositoriesOverview.section";
+import Footer from "./Components/Footer/footer.component";
 
 function App() {
   const MotionImage = motion(Image);
@@ -93,6 +94,8 @@ function App() {
         <Box mb={{ base: "6", md: "14" }} />
         <RepositoriesOverview />
       </Box>
+      <Box h="20" />
+      <Footer />
     </Box>
   );
 }

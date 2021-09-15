@@ -7,3 +7,13 @@
 html {
   scroll-behavior: smooth;
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+::-webkit-scrollbar-track {
+  background: #090f19;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffa95a;
+}
