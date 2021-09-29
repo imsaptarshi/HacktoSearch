@@ -27,6 +27,7 @@ function TagInput({
   const [isActive, setIsActive] = useState(false);
 
   const toast = useToast();
+  const enterToast = "enter-toast";
 
   const getSuggestions = value => {
     const inputValue = value.trim().toLowerCase();
@@ -193,28 +194,31 @@ function TagInput({
                   color="white"
                   onClick={() => {
                     setIsActive(true);
-                    toast({
-                      duration: 1500,
-                      render: () => (
-                        <Flex
-                          color="white"
-                          px="6"
-                          py="3"
-                          justify="center"
-                          style={{
-                            backgroundColor: "rgba(255, 255, 255, 0.19)",
-                            backdropFilter: "blur(9px)",
-                          }}
-                          rounded="xl"
-                        >
-                          Press{" "}
-                          <Kbd ml="2" mr="2" bg="transparent">
-                            Enter
-                          </Kbd>{" "}
-                          to search
-                        </Flex>
-                      ),
-                    });
+                    if (!toast.isActive(enterToast)) {
+                      toast({
+                        id: enterToast,
+                        duration: 1500,
+                        render: () => (
+                          <Flex
+                            color="white"
+                            px="6"
+                            py="3"
+                            justify="center"
+                            style={{
+                              backgroundColor: "rgba(255, 255, 255, 0.19)",
+                              backdropFilter: "blur(9px)",
+                            }}
+                            rounded="xl"
+                          >
+                            Press{" "}
+                            <Kbd ml="2" mr="2" bg="transparent">
+                              Enter
+                            </Kbd>{" "}
+                            to search
+                          </Flex>
+                        ),
+                      });
+                    }
                   }}
                   value={currentQuery}
                   _focus={{}}
