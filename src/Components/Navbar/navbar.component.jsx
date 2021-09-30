@@ -2,6 +2,7 @@ import React from "react";
 import { Flex, Image, Link } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Logo from "../../Assets/logo.png";
+import "./navbar.styles.css";
 
 function Navbar() {
   const MotionImage = motion(Image);
