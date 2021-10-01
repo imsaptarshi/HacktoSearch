@@ -13,7 +13,7 @@ function Footer() {
         transitionDuration="200ms"
         _hover={{ transform: "scale(1.1)" }}
         icon={icon}
-        alt={link}
+        aria-label={link}
         variant="ghost"
       />
     </a>
@@ -21,6 +21,7 @@ function Footer() {
 
   return (
     <Flex
+      role="contentinfo"
       justify="center"
       bg="whiteAlpha.300"
       w="full"

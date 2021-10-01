@@ -9,7 +9,7 @@ function Navbar() {
   const MotionLink = motion(Link);
 
   return (
-    <Flex w="full" justify="center">
+    <Flex w="full" justify="center" role="navigation">
       <Flex
         color={{ base: "brand.secondary", md: "white" }}
         alignItems="center"

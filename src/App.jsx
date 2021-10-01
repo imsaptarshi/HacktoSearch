@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Text, Flex } from "@chakra-ui/react";
+import { Box, Image, Text, Flex, Heading } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Navbar from "./Components/Navbar/navbar.component";
 import CustomButton from "./Components/Button/button.component";
@@ -14,9 +14,10 @@ function App() {
 
   return (
     <Box bg="brand.primary" minH="100vh" position="relative" pb="10">
-      <Box position="absolute" top="0" right="0">
+      <Box role="banner" position="absolute" top="0" right="0">
         <Image
           src={Asset}
+          alt=""
           w={{ lg: "450px", xl: "650px" }}
           opacity="0.9"
           display={{ base: "none", lg: "block" }}
@@ -25,6 +26,7 @@ function App() {
       <Navbar />
       <Box h={{ base: "150px", md: "48" }}></Box>
       <Box
+        role="main"
         maxW="1500px"
         mx="auto"
         px={{ base: "8", md: "12", lg: "20", xl: "40" }}
@@ -37,14 +39,15 @@ function App() {
         >
           Hacktoberfest Search
         </Text>
-        <Text
+        <Heading
+          as="h1"
           color="white"
           w={{ md: "600px" }}
           fontWeight="bold"
           fontSize={{ base: "4xl", md: "5xl" }}
         >
           Helping you find the best contributions you can make!
-        </Text>
+        </Heading>
         <Flex
           mt="10"
           mb={{ base: "14", md: "20" }}
