@@ -20,7 +20,7 @@ function CustomButton({ variant, children, ...otherProps }) {
           color="white"
           _hover={{ bg: "brand.secondary" }}
           _active={{ bg: "brand.secondary" }}
-          _focus={{}}
+          _focus={{ ring: "2px", ringColor: "white" }}
           whileTap={{ scale: 0.9 }}
         >
           {children}

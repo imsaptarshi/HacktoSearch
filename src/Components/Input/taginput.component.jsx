@@ -224,7 +224,7 @@ function TagInput({
                     }
                   }}
                   value={currentQuery}
-                  _focus={{}}
+                  _focus={{ ring: "2px", ringColor: "white" }}
                   border="none"
                   _placeholder={{ color: "whiteAlpha.400" }}
                   onBlur={() => {

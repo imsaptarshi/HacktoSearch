@@ -36,7 +36,7 @@ function Navbar() {
             whileTap={{ scale: 1 }}
             _hover={{}}
             _active={{}}
-            _focus={{}}
+            _focus={{ ring: "2px", ringColor: "white" }}
             whileHover={[{ scale: [1, 1.12, 1.1, 1.1, 1.1, 1.1] }]}
           >
             Contribute
