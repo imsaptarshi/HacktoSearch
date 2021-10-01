@@ -31,7 +31,7 @@ function RepositoryCard({ data, label = [], language = [] }) {
       experimental_spaceY="10"
       justify="space-between"
       direction="column"
-      id="card"
+      className="card"
       color="white"
       bg="whiteAlpha.300"
       rounded="xl"
@@ -44,7 +44,7 @@ function RepositoryCard({ data, label = [], language = [] }) {
       borderBottomColor="brand.secondary"
     >
       <Flex direction="column" experimental_spaceY="10">
-        <a href={data?.html_url} target="_blank" rel="noreferrer">
+        <a href={data?.html_url} aria-label={`Open github repo for ${data?.owner.login} in new tab`} target="_blank" rel="noreferrer">
           <Box w="full">
             <Text fontWeight="bold" fontSize="xl" mb="1.5">
               {data?.name}
@@ -69,7 +69,7 @@ function RepositoryCard({ data, label = [], language = [] }) {
             </Flex>
           </Box>
         </a>
-        <a href={data?.html_url} target="_blank" rel="noreferrer">
+        <a href={data?.html_url} aria-label={`Open github repo for ${data?.owner.login} in new tab`} target="_blank" rel="noreferrer">
           <Box cursor="pointer">
             <Text mb="2"> {data?.description}</Text>
             <Flex flexWrap="wrap">
@@ -87,7 +87,7 @@ function RepositoryCard({ data, label = [], language = [] }) {
           </Box>
         </a>
       </Flex>
-      <a href={user?.html_url} target="_blank" rel="noreferrer">
+      <a href={data?.html_url} aria-label={`Open github repo for ${data?.owner.login} in new tab`} target="_blank" rel="noreferrer">
         <Flex
           experimental_spaceX="3"
           cursor="pointer"
@@ -97,7 +97,8 @@ function RepositoryCard({ data, label = [], language = [] }) {
         >
           <Avatar
             src={data?.owner.avatar_url}
-            name={user?.name}
+            alt={`Avatar of ${data?.owner.login}`}
+            name={user?.name || "Unknown user"}
             h="12"
             w="12"
           />

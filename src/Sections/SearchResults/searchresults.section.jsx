@@ -79,7 +79,7 @@ function SearchResults() {
       >
         <Box>
           <Box mb={{ base: "2", md: "4" }}>
-            <Image w={{ base: "14", md: "20" }} src={Search} />
+            <Image w={{ base: "14", md: "20" }} src={Search} alt="search icon" />
           </Box>
           <Text
             w={{ base: "full", md: "260px", lg: "200px", xl: "220px" }}
@@ -131,7 +131,7 @@ function SearchResults() {
               alignItems="center"
               experimental_spaceY="6"
             >
-              <Image src={Doodle} />
+              <Image src={Doodle} alt="" />
               <Text
                 align="center"
                 fontWeight="bold"

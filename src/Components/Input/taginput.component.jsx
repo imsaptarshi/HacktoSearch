@@ -192,6 +192,7 @@ function TagInput({
                   {...inputProps}
                   w="full"
                   color="white"
+                  aria-label={placeholder}
                   onClick={() => {
                     setIsActive(true);
                     if (!toast.isActive(enterToast)) {
@@ -201,6 +202,8 @@ function TagInput({
                         render: () => (
                           <Flex
                             color="white"
+                            role="option"
+                            aria-label={`Search by ${placeholder}`}
                             px="6"
                             py="3"
                             justify="center"
