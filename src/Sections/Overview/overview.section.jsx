@@ -40,7 +40,7 @@ function Overview({
         setData(res);
       })
       .catch(err => setIsError(true));
-  }, [count, label, language, setIsError, sortBy]);
+  }, []);
 
   return (
     <Flex

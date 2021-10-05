@@ -43,7 +43,7 @@ function Navbar() {
           </MotionLink>
           <MotionLink
             href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-            class="twitter-share-button"
+            className="twitter-share-button"
             data-text="✨ Opensource contributions made easier with"
             data-url="https://hacktosearch.vercel.app/"
             data-hashtags="hacktosearch,hacktoberfest"
