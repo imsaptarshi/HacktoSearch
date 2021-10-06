@@ -40,6 +40,7 @@ function Overview({
         setData(res);
       })
       .catch(err => setIsError(true));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
