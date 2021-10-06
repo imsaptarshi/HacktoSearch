@@ -30,7 +30,7 @@ function Overview({
 }) {
   const [data, setData] = useState([]);
   const { isError, setIsError } = useSearch();
-
+  const [ rateLimit, setRateLimit] = useState(null);
   const { onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
@@ -39,8 +39,15 @@ function Overview({
       .then(res => {
         setData(res);
       })
-      .catch(err => setIsError(true));
-  }, [count, label, language, setIsError, sortBy]);
+      .catch(err => {
+        setIsError(true);
+        console.log(parseInt(err.response.headers['x-ratelimit-reset'])*1000)
+        console.log(Date.now())
+        if (err?.response.headers['x-ratelimit-reset']) {
+          setRateLimit(parseInt(err.response.headers['x-ratelimit-reset'])*1000);
+        }
+      });
+  }, [count, label, language, setIsError, setRateLimit, sortBy]);
 
   return (
     <Flex
@@ -97,7 +104,7 @@ function Overview({
               </Text>
 
               <Countdown
-                date={Date.now() + 60000}
+                date={rateLimit ? rateLimit : Date.now() + 60000}
                 renderer={({ hours, minutes, seconds, completed }) =>
                   completed ? (
                     <CustomButton
