@@ -20,6 +20,7 @@ function App() {
           w={{ lg: "450px", xl: "650px" }}
           opacity="0.9"
           display={{ base: "none", lg: "block" }}
+          alt="bg-pattern"
         />
       </Box>
       <Navbar />

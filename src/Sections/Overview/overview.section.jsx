@@ -92,7 +92,7 @@ function Overview({
               alignItems="center"
               experimental_spaceY="6"
             >
-              <Image src={Doodle} />
+              <Image src={Doodle} alt="doodle"/>
               <Text
                 align="center"
                 fontWeight="bold"
