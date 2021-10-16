@@ -30,7 +30,7 @@ function Overview({
 }) {
   const [data, setData] = useState([]);
   const { isError, setIsError } = useSearch();
-
+  const [rateLimit, setRateLimit] = useState(null);
   const { onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
@@ -86,7 +86,7 @@ function Overview({
               alignItems="center"
               experimental_spaceY="6"
             >
-              <Image src={Doodle} />
+              <Image src={Doodle} alt="doodle" />
               <Text
                 align="center"
                 fontWeight="bold"
@@ -98,7 +98,7 @@ function Overview({
               </Text>
 
               <Countdown
-                date={Date.now() + 60000}
+                date={rateLimit ? rateLimit : Date.now() + 60000}
                 renderer={({ hours, minutes, seconds, completed }) =>
                   completed ? (
                     <CustomButton

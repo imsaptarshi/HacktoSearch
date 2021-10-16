@@ -16,13 +16,29 @@ function RepositoriesOverview() {
             id="repos"
             title="Good First Issue"
             label={["good-first-issue", "hacktoberfest"]}
-            icon={<Image w={{ base: "14", md: "20" }} src={GoodFirstIssue} />}
+            icon={
+              <Image
+                w={{ base: "14", md: "20" }}
+                h={{ base: "14", md: "20" }}
+                objectFit="contain"
+                src={GoodFirstIssue}
+                alt="star icon"
+              />
+            }
           />
           <Box mb={{ base: "6", md: "14" }} />
           <Overview
             title="Hacktober Fest"
             label={["hacktoberfest"]}
-            icon={<Image w={{ base: "14", md: "20" }} src={Hacktoberfest} />}
+            icon={
+              <Image
+                w={{ base: "14", md: "20" }}
+                h={{ base: "14", md: "20" }}
+                objectFit="contain"
+                src={Hacktoberfest}
+                alt="Hacktoberfest"
+              />
+            }
           />
         </>
       ) : (
