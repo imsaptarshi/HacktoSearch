@@ -1,8 +1,27 @@
-<h1 align="center">Let's Hack this October 🐱‍👤</h1>
 
-![hacktosearch](./public/hacktosearch.gif)
+<div align="center">
+  <h3>Let's Hack this October🐱‍👤 with</h3>
+  <h1 align="center">HacktoSearch</h1>
 
-[Hacktosearch](https://hacktosearch.vercel.app) helps you find the best opensource contribution you can make!
+  <p align="center">
+    HacktoSearch helps you find the best opensource contribution you can make!
+    <br />
+    <a href="https://github.com/imsaptarshi/HacktoSearch"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://hacktosearch.vercel.app/">View Demo</a>
+    ·
+    <a href="https://github.com/imsaptarshi/HacktoSearch/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/imsaptarshi/HacktoSearch/issues">Request Feature</a>
+  </p>
+  
+  <a href="https://github.com/imsaptarshi/HacktoSearch">
+    <img src="./public/hacktosearch.gif" alt="working gif">
+  </a>
+
+  
+</div>
 
 ## Setup
 
