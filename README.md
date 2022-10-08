@@ -26,11 +26,19 @@
 ## Setup
 
 ```sh
-# Install dependencies
+# Install all the dependencies
 npm install
 
-# Run the project
+# Run the project using NPM
 npm start
+```
+
+```sh
+# Install all the dependencies
+yarn install
+
+# Run the project using NPM
+yarn start
 ```
 
 More at [Setup.md](Setup.md)
